@@ -1,0 +1,77 @@
+{% extends 'main/template.html' %}
+
+{% load static %}
+
+{% block title %}Вкладка №2{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'audits/audits.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="main-block">
+        <div class="navbar-second">
+            <div class="prev">
+                <h3>Вкладка №2</h3>
+            </div>
+            <div class="inform">
+                <a href="{% url 'new_audit' %}" class="new_card">Добавить новый аудит</a>
+                <img class='filter' src="{% static 'users/filter.png' %}" alt="">
+                <img class='search' src="{% static 'users/search.png' %}" alt="">
+            </div>
+        </div>
+
+        <div class="vis-block">
+            <div class="cards">
+                {% for el in audits %}
+                <div class="card">
+                    <div class="color" {% if el.status == 'Completed' %}style="background-color: #4AC24F;"{% endif %} {% if el.status == 'Not completed' %}style="background-color: #EA3342;"{% endif %} {% if el.status == 'Pending' %}style="background-color: #FF9900;"{% endif %}></div>
+                    <div class="inf">
+                        <p class="date">{{ el.date }}</p>
+                        <p class="name">{{ el.name }}</p>
+                        <p class="description">{{ el.brief_description }}</p>
+                        <p class="dop">{{ el.auditor }}</p>
+                        <p class="status">Статус: {{ el.status|get_status }}</p>
+                        <a href="{% url 'audit' el.report_id %}" class="more">Подробнее</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="inf-block">
+                <p class="stats_choice">Раздел карточек</p>
+                <div class="chapter">
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538407 6.65686 0.928931L0.292893 7.29289ZM18 7L1 7L1 9L18 9L18 7Z" fill="black" fill-opacity="0.6"/>
+                    </svg>                        
+                    <p class="chapter-text">Раздел 1</p>
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.7071 8.70711C18.0976 8.31658 18.0976 7.68342 17.7071 7.29289L11.3431 0.928932C10.9526 0.538408 10.3195 0.538408 9.92893 0.928932C9.53841 1.31946 9.53841 1.95262 9.92893 2.34315L15.5858 8L9.92893 13.6569C9.53841 14.0474 9.53841 14.6805 9.92893 15.0711C10.3195 15.4616 10.9526 15.4616 11.3431 15.0711L17.7071 8.70711ZM0 9L17 9V7L0 7L0 9Z" fill="black" fill-opacity="0.6"/>
+                    </svg>                        
+                </div>
+                <p class="stats_choice">Выбрать статус карточки</p>
+                <div class="status">
+                    <div class="status-block">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="10" fill="#4AC24F"/>
+                        </svg>    
+                        <p class="text">Положительно</p>
+                    </div>
+                    <div class="status-block">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="10" fill="#EA3342"/>
+                        </svg>
+                        <p class="text">Отрицательно</p>
+                    </div>
+                    <div class="status-block">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="10" fill="#FF9900"/>
+                        </svg>                                                      
+                        <p class="text">Не определено</p>
+                    </div>
+                </div>
+                <button class="hide-ready">Скрыть положительные результаты</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

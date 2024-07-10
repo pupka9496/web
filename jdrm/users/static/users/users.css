@@ -1,0 +1,81 @@
+.navbar-second{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filter{
+    height: 30px;
+}
+
+.search{
+    height: 30px;
+}
+
+
+.inform{
+    display: flex; 
+    width: 600px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.prev {
+    padding-left: 30px;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+}
+
+.card{
+    background-color: #F7F7F7;
+    width: 55%;
+    height: 180px;
+    margin: 15px 30px;
+    border-radius: 14px;
+}
+
+.inf{
+    padding: 10px;
+    padding-left: 15px;
+    height: 160px;
+    position: relative;
+}
+
+.inf .little-inf {
+    font-size: 18px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.inf .name{
+    font-size: 25px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.inf .add-inf-1 {
+    font-size: 20px;
+    margin: 0;
+    margin-top: 25px;
+}
+
+.inf .add-inf-2 {
+    font-size: 20px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.inf .change {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+    color: #1C457C;
+    cursor: pointer;
+}

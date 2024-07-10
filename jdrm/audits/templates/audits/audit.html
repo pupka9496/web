@@ -1,0 +1,87 @@
+{% extends 'main/template.html' %}
+
+{% load static %}
+
+{% block title %}Вкладка №2{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'audits/audit.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-block">
+    <div class="navbar-second">
+        <div class="prev">
+            <h3>Вкладка №2</h3>
+        </div>
+        <div class="inform">
+            <img class='filter' src="{% static 'users/filter.png' %}" alt="">
+            <img class='search' src="{% static 'users/search.png' %}" alt="">
+        </div>
+    </div>
+
+    <div class="title-block">
+        <div class="inf">
+            <p class="chapter">{{ report.section }}</p>
+            {% for el in audits %}
+                {% if el.report_id == report.report_id %}
+                    <p class="name">{{ el.name }}</p>
+                    <p class="description">{{ el.description }}</p>
+                {% endif %}
+            {% endfor %}            
+            <p class="place">{{ report.plant.name_of_plant }}</p>
+            <p class="date">{{ report.date }}</p>
+            <div class="status">
+                <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M53.0589 34.8235H31.1765V14.7646" stroke="#FF9900" stroke-width="2.64606" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33 64C50.1207 64 64 50.1207 64 33C64 15.8792 50.1207 2 33 2C15.8792 2 2 15.8792 2 33C2 50.1207 15.8792 64 33 64Z" stroke="#FF9900" stroke-width="2.64606" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                    
+                <p class="text">Статус: <br>на доработку</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="line-section">
+        <p class="section active">{{ report.evaluation_category }}</p>
+        <!--<p class="section">M2</p>
+        <p class="section">M3</p>
+        <p class="section">M4</p>
+        <p class="section">M5</p>
+        <p class="section">M6</p>
+        <p class="section">M7</p>
+        <p class="section">M8</p>-->
+    </div>
+
+    <div class="line-point">
+        <p class="point active">{{ report.sub_item_number }}</p>
+        <!--<p class="point">2</p>
+        <p class="point">3</p>
+        <p class="point">4</p>
+        <p class="point">5</p>
+        <p class="point">6</p>
+        <p class="point">7</p>
+        <p class="point">8</p>
+        <p class="point">9</p>
+        <p class="point">10</p>-->
+    </div>
+
+    <div class="evalution">
+        <p>Оценка:</p>
+        <p>{{ report.evaluation }}</p>
+    </div>
+    
+    <div class="responsible">
+        <p>Ответственный:</p>
+        <p>{{ report.responsible_for_evaluation }}</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p>Комментарий:</p>
+        <p>{{ report.comments }}</p>
+    </div>
+    
+   
+
+</div>
+{% endblock %}

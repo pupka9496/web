@@ -1,0 +1,46 @@
+{% extends 'main/template.html' %}
+
+{% load static %}
+
+{% block title %}Вкладка №1{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'users/users.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-block">
+    <div class="navbar-second">
+        <div class="prev">
+            <h3>Вкладка №1</h3>
+        </div>
+        <div class="inform">
+            <p>Добавить карточку</p>
+            <img class='filter' src="{% static 'users/filter.png' %}" alt="">
+            <img class='search' src="{% static 'users/search.png' %}" alt="">
+        </div>
+    </div>
+    
+    <div class="cards">
+        <div class="card">
+            <div class="inf">
+                <p class="little-inf">малая информация</p>
+                <p class="name">НАЗВАНИЕ КАРТОЧКИ</p>
+                <p class="add-inf-1">Доп. сведения №1</p>
+                <p class="add-inf-2">Доп. сведения №2</p>
+                <button class="change">Редактировать</button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="inf">
+                <p class="little-inf">малая информация</p>
+                <p class="name">НАЗВАНИЕ КАРТОЧКИ</p>
+                <p class="add-inf-1">Доп. сведения №1</p>
+                <p class="add-inf-2">Доп. сведения №2</p>
+                <button class="change">Редактировать</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

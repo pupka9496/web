@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="{% static 'auth/auth.css' %}">
+</head>
+<body>
+    <!-- <form action="register" method="post">
+        <input type="text" placeholder="login" name="login">
+        <input type="text" placeholder="email" name="email">
+        <input type="text" placeholder="password" name="password">
+        <input type="text" placeholder="repeat password" name="repeatPassword">
+        <button type="submit">Зарегистрироваться</button>
+    </form> -->
+    <div class="main_block">
+        
+        <div class="reg">
+            <form class="form" action="{% url 'main' %}" method="post">
+                {% csrf_token %}
+                <h2 class="welcome">Вход</h2>
+                <input class="input-form" type="text" placeholder="Логин" name="login">
+                <input class="input-form" type="text" placeholder="Пароль" name="password">
+                <button class="button-form" type="submit">Войти</button>
+            </form>
+
+        </div>
+        <div class="dumb_bitch">
+            <a href="#">Забыли пароль?</a>
+        </div>
+
+    </div>
+</body>
+</html>

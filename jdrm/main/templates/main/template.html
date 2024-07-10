@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="template.css">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/template.css' %}">
+    {% block links %}
+    {% endblock%}
+</head>
+<body>
+    <div class="header">
+        <div class="user">
+            <svg class="user-icon" width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.8378 1C6.74769 1 1 6.59644 1 13.5C1 20.4035 6.74769 26 13.8378 26C20.9279 26 26.6757 20.4035 26.6757 13.5C26.6757 6.59644 20.9279 1 13.8378 1Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3.91553 21.4324C3.91553 21.4324 6.77711 17.8752 13.8379 17.8752C20.8987 17.8752 23.7604 21.4324 23.7604 21.4324" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13.8377 13.5C15.9648 13.5 17.689 11.8211 17.689 9.75C17.689 7.67894 15.9648 6 13.8377 6C11.7106 6 9.98633 7.67894 9.98633 9.75C9.98633 11.8211 11.7106 13.5 13.8377 13.5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p>admin</p>                
+        </div>
+        <div class="navbar">
+            <a id="main-button" class="navbar-el {% if request.path|get_name_url == '' %}active{% endif %}" href="{% url 'main' %}">Главная</a>
+            <a id="page-1-button" class="navbar-el {% if request.path|get_name_url == 'page1' %}active{% endif %}" href="{% url 'page1' %}">Вкладка №1</a>    
+            <a id="page-2-button" class="navbar-el {% if request.path|get_name_url == 'page2' %}active{% endif %}" href="{% url 'page2' %}">Вкладка №2</a>
+            <a id="page-3-button" class="navbar-el {% if request.path|get_name_url == 'page3' %}active{% endif %}" href="{% url 'page3' %}">Вкладка №3</a>
+        </div>
+        <div class="exit">
+            <a class="rectangle" href="{% url 'auth' %}">
+                <p class="text-exit">Выход</p>
+                <svg class="exit-icon" width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.5 9.49972H14M14 9.49972L11.2143 12.333M14 9.49972L11.2143 6.66638" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 3.83333V2.88889C14 1.84568 13.1686 1 12.1429 1H2.85714C1.83147 1 1 1.84568 1 2.88889V16.1111C1 17.1543 1.83147 18 2.85714 18H12.1429C13.1686 18 14 17.1543 14 16.1111V15.1667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+                         
+
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

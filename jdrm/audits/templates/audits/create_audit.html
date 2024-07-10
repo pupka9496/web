@@ -1,0 +1,17 @@
+{% extends 'main/template.html' %}
+
+{% load static %}
+
+{% block title %}Вкладка №2{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'audits/audit.css' %}">
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+{% endblock %}

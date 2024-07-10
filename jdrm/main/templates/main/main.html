@@ -1,0 +1,71 @@
+{% extends 'main/template.html' %}
+
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'main/main.css' %}">
+    <script src="{% static 'main/main.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <div class="name-factory">
+        <p class="factory">Завод</p>
+        <div class="name">
+            <h2>ПОЛНОЕ НАЗВАНИЕ ЗАВОДА</h2>
+            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.20825 15.8927L9.20825 0.166626L11.7916 0.166626L11.7916 15.8927L19.0249 8.65933L20.8333 10.5L10.4999 20.8333L0.166586 10.5L1.97492 8.65933L9.20825 15.8927Z" fill="black"/>
+            </svg> 
+        </div>
+        <p class="factory mix">Краткое или полное описание выбранного завода</p>
+    </div>
+
+    <div class="active-block">
+        <div class="vis-block">
+            <div class="clickers">
+                <button id="clicker1" class="clicker active" onclick="switch_to()">Лепестковая диаграмма</button>
+                <button id="clicker2" class="clicker" onclick="switch_to()">Столбчатая диаграмма</button>
+            </div>
+
+            <div class="invisible-blocks">
+                    <div class="invisible" id="radar_char" >
+                        <img class="char" src="{% static 'main/radar_char.png' %}">
+                    </div>
+
+                    <div class="invisible disable" id="bar_char"> 
+                        <img class="char" src="{% static 'main/bar_char.png' %}">    
+                    </div>
+            </div>
+        </div>
+
+        <div class="info-block">
+            <div class="date">
+                <p>{{ month }}</p>
+                <p style="font-size: 35px;">|</p>
+                <p>{{ year }}</p>
+            </div>
+
+            <div class="analiz-names">
+                <div class='self-esteem'>
+                    </svg><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#CECECE"/>
+                    </svg>   
+                    <p style="margin:0px">Самооценка</p>
+                </div>
+                <span style="height: 15px;"></span>
+                <div class='target'>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="8" fill="#1C457C"/>
+                    </svg>    
+                    <p style="margin:0px">Целевой показатель</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
